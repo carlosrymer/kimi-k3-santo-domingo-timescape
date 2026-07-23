@@ -59,7 +59,8 @@ scene a viewer would find beautiful and legible, not a rough sketch. No outer <s
   const { content, usage, finish } = await callKimi({
     system: SYSTEM,
     user,
-    maxTokens: 50000,
+    maxTokens: 48000,
+    reasoningEffort: "medium",
     label: `scene ${era.index} ${era.id}`,
     rawPath,
   });

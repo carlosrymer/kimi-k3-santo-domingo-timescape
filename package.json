@@ -1,0 +1,16 @@
+{
+  "name": "kimi-k3-santo-domingo-timescape-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev tooling only (Kimi K3 generation + QA renders). The shipped site is static and dependency-free.",
+  "scripts": {
+    "gen:scenes": "node tools/kimi/01-scenes.mjs",
+    "gen:shell": "node tools/kimi/02-shell.mjs",
+    "gen:app": "node tools/kimi/03-app.mjs",
+    "build:data": "node tools/build-data.mjs",
+    "render": "node tools/render-scene.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

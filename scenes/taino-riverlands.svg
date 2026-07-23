@@ -1,0 +1,416 @@
+<defs>
+  <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#4fa8bc"/>
+    <stop offset=".5" stop-color="#8ec9c6"/>
+    <stop offset=".85" stop-color="#cfe0c8"/>
+    <stop offset="1" stop-color="#e9e4c6"/>
+  </linearGradient>
+  <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7fbdb8"/>
+    <stop offset=".25" stop-color="#3f97a0"/>
+    <stop offset=".6" stop-color="#2a7d8c"/>
+    <stop offset="1" stop-color="#12435a"/>
+  </linearGradient>
+  <linearGradient id="landG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#4b8a63"/>
+    <stop offset=".45" stop-color="#2f6b4f"/>
+    <stop offset="1" stop-color="#1f3d2b"/>
+  </linearGradient>
+  <linearGradient id="mudG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#d5c79e"/>
+    <stop offset="1" stop-color="#a3956e"/>
+  </linearGradient>
+  <linearGradient id="poolG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7fbdb8"/>
+    <stop offset="1" stop-color="#12435a"/>
+  </linearGradient>
+
+  <g id="cloud" fill="#ffffff">
+    <ellipse cx="0" cy="0" rx="46" ry="14"/>
+    <ellipse cx="-30" cy="6" rx="30" ry="10"/>
+    <ellipse cx="32" cy="5" rx="28" ry="9"/>
+    <rect x="-55" y="4" width="115" height="9" rx="4"/>
+  </g>
+
+  <g id="frig" fill="none" stroke="#274035" stroke-width="2.4" stroke-linecap="round">
+    <path d="M-17,2 Q-8,-8 0,0 Q8,-8 17,2"/>
+    <path d="M0,0 L3,5 M0,0 L-3,5" stroke-width="1.6"/>
+  </g>
+
+  <g id="palm" fill="none" stroke-linecap="round">
+    <path d="M0,0 C-3,-32 -2,-70 5,-104" stroke="#b9bfa4" stroke-width="7"/>
+    <path d="M0,0 C-3,-32 -2,-70 5,-104" stroke="#9aa382" stroke-width="7" stroke-dasharray="2 14" opacity=".7"/>
+    <path d="M5,-104 C6,-112 8,-118 10,-122" stroke="#7fae86" stroke-width="10"/>
+    <g stroke="#2f6b4f" stroke-width="5">
+      <path d="M10,-122 C-14,-134 -38,-132 -56,-116"/>
+      <path d="M10,-122 C-8,-142 -26,-148 -46,-144"/>
+      <path d="M10,-122 C4,-142 8,-154 16,-162"/>
+      <path d="M10,-122 C26,-140 44,-146 62,-140"/>
+      <path d="M10,-122 C30,-132 50,-128 64,-112"/>
+    </g>
+    <g stroke="#7fae86" stroke-width="2.4" opacity=".85">
+      <path d="M10,-122 C-12,-130 -32,-128 -48,-116"/>
+      <path d="M10,-122 C24,-134 42,-138 56,-132"/>
+    </g>
+    <circle cx="7" cy="-116" r="3" fill="#6e5f3f" stroke="none"/>
+    <circle cx="13" cy="-113" r="2.6" fill="#6e5f3f" stroke="none"/>
+  </g>
+
+  <g id="bohio">
+    <ellipse cx="0" cy="-4" rx="33" ry="19" fill="#b3a075"/>
+    <ellipse cx="0" cy="-13" rx="33" ry="19" fill="#c9b98f"/>
+    <path d="M-5,4 L-5,-8 A5,5 0 0 1 5,-8 L5,4 Z" fill="#4a3b28"/>
+    <path d="M-42,-18 Q0,-2 42,-18 Q0,-8 -42,-18 Z" fill="#5d4d33" opacity=".8"/>
+    <path d="M-42,-18 Q0,-4 42,-18 L6,-74 Q0,-80 -6,-74 Z" fill="#8f7c53"/>
+    <path d="M0,-76 L-24,-14 M0,-76 L24,-14 M0,-76 L0,-10" stroke="#6e5f3f" stroke-width="1.5" opacity=".45" fill="none"/>
+  </g>
+
+  <g id="fig" stroke="#8a5a3b" stroke-width="2" stroke-linecap="round" fill="none">
+    <circle cx="0" cy="-12" r="3" fill="#8a5a3b" stroke="none"/>
+    <path d="M0,-9 L0,-2 M0,-7 L-4.5,-3.5 M0,-7 L4.5,-4 M0,-2 L-3,3.5 M0,-2 L3,3.5"/>
+  </g>
+
+  <g id="mound">
+    <ellipse rx="12" ry="5" fill="#b09a6a"/>
+    <path d="M-3,-2 q2,-6 4,0 M1,-2 q4,-5 6,-1" stroke="#7fae86" stroke-width="1.4" fill="none"/>
+  </g>
+
+  <g id="wader">
+    <path d="M-3,0 L-4,-20 M4,0 L3,-20" stroke="#5a5648" stroke-width="1.6" fill="none"/>
+    <ellipse cx="0" cy="-27" rx="13" ry="7.5" fill="currentColor"/>
+    <path d="M8,-30 C14,-40 10,-48 16,-54" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <circle cx="17" cy="-55" r="3.6" fill="currentColor"/>
+    <path d="M20,-56 L32,-53" stroke="#c9a94f" stroke-width="1.6" fill="none"/>
+    <path d="M-12,-28 l-6,3" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <g id="hull">
+    <path d="M-72,-2 C-32,9 32,9 72,-2 C56,14 -56,14 -72,-2 Z" fill="#6e5638"/>
+    <path d="M-64,-1 C-28,6 28,6 64,-1 C44,5 -44,5 -64,-1 Z" fill="#47351f"/>
+    <path d="M-66,-2 C-28,6 28,6 66,-2" fill="none" stroke="#8a6f4a" stroke-width="2"/>
+  </g>
+
+  <g id="hs">
+    <circle r="24" fill="#ffffff" opacity="0"/>
+    <circle r="15" fill="none" stroke="#0e2f40" stroke-opacity=".35" stroke-width="5"/>
+    <circle r="15" fill="none" stroke="#ffffff" stroke-width="2.2"/>
+    <circle r="4" fill="#ffffff"/>
+    <circle r="4" fill="none" stroke="#0e2f40" stroke-opacity=".4" stroke-width="1.5"/>
+  </g>
+</defs>
+
+<g class="pl pl-sky">
+  <rect x="0" y="0" width="1600" height="380" fill="url(#skyG)"/>
+  <circle cx="300" cy="130" r="92" fill="#f7eed3" opacity=".22"/>
+  <circle cx="300" cy="130" r="46" fill="#f7eed3" opacity=".9"/>
+  <g class="ambient amb-drift">
+    <use href="#cloud" transform="translate(560,108) scale(1.2)" opacity=".55"/>
+    <use href="#cloud" transform="translate(1080,76) scale(.9)" opacity=".45"/>
+    <use href="#cloud" transform="translate(1420,205) scale(.7)" opacity=".35"/>
+    <use href="#cloud" transform="translate(180,230) scale(.8)" opacity=".3"/>
+  </g>
+  <g class="theme-fauna ambient amb-drift">
+    <use href="#frig" transform="translate(940,140)"/>
+    <use href="#frig" transform="translate(1012,172) scale(.8)"/>
+    <use href="#frig" transform="translate(1082,126) scale(.65)"/>
+    <use href="#frig" transform="translate(662,96) scale(.9)"/>
+  </g>
+</g>
+
+<g class="pl pl-far">
+  <rect x="0" y="300" width="1600" height="66" fill="#e6e8d4" opacity=".35"/>
+  <rect x="1150" y="356" width="450" height="8" fill="#cfe7dd" opacity=".7"/>
+  <path d="M1468,362 Q1520,346 1560,354 Q1590,348 1600,352 L1600,362 Z" fill="#7fae86" opacity=".3"/>
+  <g class="theme-vegetation">
+    <path d="M0,360 L0,344 Q30,328 60,342 Q95,324 130,340 Q165,326 200,342 Q240,322 280,340 Q320,326 360,342 Q400,328 440,342 Q480,324 520,340 Q560,328 600,342 Q645,324 690,340 Q730,328 770,342 Q810,326 850,340 Q890,328 930,342 Q975,326 1020,342 Q1080,330 1150,344 L1150,360 Z" fill="#7fae86" opacity=".7"/>
+    <ellipse cx="200" cy="360" rx="60" ry="6" fill="#c9b98f" opacity=".5"/>
+    <ellipse cx="700" cy="362" rx="80" ry="7" fill="#c9b98f" opacity=".45"/>
+    <ellipse cx="1000" cy="360" rx="50" ry="5" fill="#c9b98f" opacity=".5"/>
+    <path d="M0,366 L0,356 Q25,344 50,354 Q80,342 110,354 Q140,344 170,355 Q205,343 240,354 Q275,344 310,355 Q345,345 380,355 Q420,343 455,354 Q490,346 525,356 Q560,346 595,356 Q635,344 670,354 Q705,346 740,356 Q780,346 815,356 Q850,346 885,356 Q925,346 960,356 Q1000,348 1040,358 Q1090,350 1150,358 L1150,366 Z" fill="#2f6b4f" opacity=".9"/>
+    <path d="M0,366 Q14,359 28,366 T56,366 T84,366 T112,366 T140,366 T168,366 T196,366 T224,366 T252,366 T280,366 T308,366 T336,366 T364,366 T392,366 T420,366 T448,366 T476,366 T504,366 T532,366 T560,366 T588,366 T616,366 T644,366 T672,366 T700,366 T728,366 T756,366 T784,366 T812,366 T840,366 T868,366 T896,366 T924,366 T952,366 T980,366 T1008,366 T1036,366 T1064,366 T1092,366 T1120,366 T1148,366 L1150,372 L0,372 Z" fill="#1f3d2b" opacity=".45"/>
+  </g>
+  <g class="theme-fauna" fill="#f2f1e8" opacity=".9">
+    <circle cx="240" cy="358" r="1.7"/>
+    <circle cx="760" cy="360" r="1.5"/>
+    <circle cx="1030" cy="358" r="1.7"/>
+  </g>
+  <g class="theme-people">
+    <path class="ambient amb-rise" d="M330,336 C325,316 337,304 330,286 C324,270 334,260 330,246" stroke="#c9cdbd" stroke-width="5" fill="none" stroke-linecap="round" opacity=".5"/>
+    <path class="ambient amb-rise" d="M880,338 C875,320 887,308 881,292 C876,278 885,268 881,254" stroke="#c9cdbd" stroke-width="5" fill="none" stroke-linecap="round" opacity=".45"/>
+  </g>
+</g>
+
+<g class="pl pl-water">
+  <rect x="0" y="356" width="1600" height="404" fill="url(#waterG)"/>
+  <rect x="0" y="356" width="1600" height="14" fill="#cfe7dd" opacity=".5"/>
+  <g class="theme-hydrology" fill="#1f3d2b" opacity=".13">
+    <rect x="40" y="374" width="22" height="30" rx="9"/>
+    <rect x="110" y="376" width="18" height="26" rx="8"/>
+    <rect x="190" y="373" width="26" height="34" rx="10"/>
+    <rect x="280" y="376" width="20" height="28" rx="8"/>
+    <rect x="360" y="374" width="24" height="32" rx="9"/>
+    <rect x="450" y="376" width="18" height="26" rx="8"/>
+    <rect x="540" y="373" width="26" height="34" rx="10"/>
+    <rect x="640" y="376" width="20" height="28" rx="8"/>
+    <rect x="730" y="374" width="24" height="32" rx="9"/>
+    <rect x="830" y="376" width="18" height="26" rx="8"/>
+    <rect x="920" y="373" width="24" height="30" rx="9"/>
+    <rect x="1020" y="376" width="20" height="26" rx="8"/>
+    <rect x="1100" y="374" width="18" height="24" rx="8"/>
+  </g>
+  <g class="theme-hydrology ambient amb-flow" stroke="#eef0da" stroke-width="3" stroke-linecap="round" opacity=".4" fill="none">
+    <path d="M250,398 h44 M230,416 h64 M268,434 h40 M222,452 h58 M258,470 h36 M236,486 h48"/>
+  </g>
+  <g class="theme-people ambient amb-drift" transform="translate(700,424) scale(.85)">
+    <ellipse cx="0" cy="7" rx="82" ry="8" fill="none" stroke="#cfe4dd" stroke-width="2" opacity=".35"/>
+    <use href="#hull"/>
+    <circle cx="-20" cy="-16" r="3.4" fill="#8a5a3b"/>
+    <path d="M-20,-13 L-20,-4 M-20,-10 L-28,-2" stroke="#8a5a3b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M-30,-14 L-38,12" stroke="#7a5a3a" stroke-width="2.5" fill="none"/>
+    <ellipse cx="-38" cy="13" rx="3" ry="5" fill="#7a5a3a"/>
+    <circle cx="22" cy="-17" r="3.4" fill="#8a5a3b"/>
+    <path d="M22,-14 L22,-4 M22,-11 L30,-3" stroke="#8a5a3b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M32,-16 L40,10" stroke="#7a5a3a" stroke-width="2.5" fill="none"/>
+    <ellipse cx="40" cy="11" rx="3" ry="5" fill="#7a5a3a"/>
+  </g>
+  <g class="hotspot" data-hotspot="Manatee in the estuary" tabindex="0" role="button" transform="translate(860,432)">
+    <ellipse class="theme-hydrology ambient amb-bob" cx="0" cy="7" rx="66" ry="11" fill="none" stroke="#cfe4dd" stroke-width="2" opacity=".5"/>
+    <ellipse class="theme-hydrology ambient amb-bob" cx="0" cy="8" rx="94" ry="15" fill="none" stroke="#cfe4dd" stroke-width="2" opacity=".25"/>
+    <g class="theme-fauna ambient amb-bob">
+      <ellipse cx="0" cy="0" rx="46" ry="11" fill="#54706a"/>
+      <ellipse cx="42" cy="-2" rx="13" ry="7" fill="#54706a"/>
+      <path d="M-44,2 q-14,1 -22,-4" stroke="#54706a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="46" cy="-6" r="1.4" fill="#20322e"/>
+      <circle cx="50" cy="-5" r="1.4" fill="#20322e"/>
+      <path d="M-30,-6 q28,-6 56,-2" stroke="#6d8880" stroke-width="2" fill="none" opacity=".7"/>
+    </g>
+    <use href="#hs" transform="translate(0,-36)"/>
+  </g>
+  <g class="theme-fauna ambient amb-bob" transform="translate(552,448)">
+    <path d="M-42,2 C-22,-4 8,-5 34,-1 L46,1 L34,3 C8,6 -22,5 -42,2 Z" fill="#43604a"/>
+    <circle cx="6" cy="-4" r="2.8" fill="#43604a"/>
+    <circle cx="20" cy="-3.6" r="2.6" fill="#43604a"/>
+    <circle cx="6" cy="-4.4" r="1" fill="#1c2b20"/>
+    <circle cx="20" cy="-4" r="1" fill="#1c2b20"/>
+    <ellipse cx="0" cy="4" rx="52" ry="6" fill="none" stroke="#bfe0da" stroke-width="1.5" opacity=".3"/>
+  </g>
+  <g class="theme-fauna ambient amb-bob" transform="translate(382,454) scale(.95)" style="color:#9db4b0">
+    <ellipse cx="0" cy="3" rx="16" ry="3" fill="#9db4b0" opacity=".25"/>
+    <use href="#wader"/>
+  </g>
+  <g class="theme-people ambient amb-bob" transform="translate(1085,455) scale(.72)">
+    <use href="#hull"/>
+    <use href="#fig" transform="translate(0,-4)"/>
+    <path d="M0,-11 L8,-20" stroke="#8a5a3b" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M8,-20 C28,-28 42,-20 50,-6" stroke="#e8e4d0" stroke-width="1.6" fill="none"/>
+    <circle cx="50" cy="-6" r="1.6" fill="#e8e4d0"/>
+    <circle cx="44" cy="-14" r="1.3" fill="#e8e4d0"/>
+  </g>
+  <g class="theme-hydrology ambient amb-flow" stroke="#bfe0da" stroke-width="2" fill="none" opacity=".3">
+    <path d="M520,412 q26,-5 52,0 M760,398 q24,-4 48,0 M980,420 q26,-5 52,0 M1250,470 q30,-5 60,0 M1400,520 q34,-6 68,0 M1220,560 q30,-5 60,0 M420,438 q24,-4 48,0 M1360,610 q34,-6 68,0"/>
+  </g>
+  <g class="theme-fauna ambient amb-drift">
+    <g transform="translate(1305,420)">
+      <path d="M-6,-2 C-26,-14 -46,-12 -60,-2 C-40,-8 -22,-6 -6,0 Z" fill="#a99f86"/>
+      <ellipse cx="0" cy="0" rx="17" ry="6.5" fill="#cfc6b0"/>
+      <path d="M-2,-3 C-14,-18 8,-24 24,-14 C12,-14 4,-8 -2,-3 Z" fill="#b7ac92"/>
+      <circle cx="15" cy="-3" r="4.5" fill="#cfc6b0"/>
+      <path d="M18,-3 L44,1 L18,2 Z" fill="#c9a94f"/>
+    </g>
+    <g transform="translate(1445,452) scale(.72)">
+      <path d="M-6,-2 C-26,-14 -46,-12 -60,-2 C-40,-8 -22,-6 -6,0 Z" fill="#a99f86"/>
+      <ellipse cx="0" cy="0" rx="17" ry="6.5" fill="#cfc6b0"/>
+      <path d="M-2,-3 C-14,-18 8,-24 24,-14 C12,-14 4,-8 -2,-3 Z" fill="#b7ac92"/>
+      <circle cx="15" cy="-3" r="4.5" fill="#cfc6b0"/>
+      <path d="M18,-3 L44,1 L18,2 Z" fill="#c9a94f"/>
+    </g>
+  </g>
+</g>
+
+<g class="pl pl-city">
+  <path d="M0,452 C240,438 430,455 640,466 C830,475 1020,460 1180,468 C1105,505 1045,560 975,625 C900,695 830,725 760,748 L770,784 L0,784 Z" fill="url(#landG)"/>
+  <path d="M1180,468 C1105,505 1045,560 975,625 C900,695 830,725 760,748 L772,766 C845,742 918,710 992,644 C1064,580 1126,526 1190,486 Z" fill="#d8ca9f"/>
+  <path d="M0,452 C240,438 430,455 640,466 C830,475 1020,460 1180,468 L1180,484 C1020,476 830,491 640,482 C430,471 240,454 0,468 Z" fill="#cfc29a"/>
+  <path d="M300,462 l4,10 M620,474 l3,10 M940,472 l4,9" stroke="#a89a72" stroke-width="1.5" opacity=".7" fill="none"/>
+  <path d="M0,452 C240,438 430,455 640,466 C830,475 1020,460 1180,468" stroke="#12435a" stroke-width="3" fill="none" opacity=".22"/>
+  <path d="M0,449 C240,435 430,452 640,463 C830,472 1020,457 1180,465" stroke="#7fae86" stroke-width="3" fill="none" opacity=".55"/>
+  <path d="M0,457 C240,443 430,460 640,471 C830,480 1020,465 1180,473" stroke="#e8e4d0" stroke-width="2" fill="none" opacity=".5"/>
+  <g fill="#7fae86" opacity=".45">
+    <ellipse cx="500" cy="560" rx="80" ry="20"/>
+    <ellipse cx="850" cy="600" rx="100" ry="24"/>
+    <ellipse cx="300" cy="560" rx="70" ry="18"/>
+    <ellipse cx="950" cy="560" rx="60" ry="16"/>
+  </g>
+  <g stroke="#d3c49a" fill="none" stroke-linecap="round">
+    <path d="M690,635 C640,650 600,650 560,655" stroke-width="10" opacity=".55"/>
+    <path d="M860,585 C920,560 980,530 1030,505" stroke-width="9" opacity=".5"/>
+    <path d="M780,630 C840,660 880,680 920,700" stroke-width="8" opacity=".5"/>
+  </g>
+  <g class="theme-vegetation">
+    <g fill="#1f3d2b">
+      <circle cx="20" cy="468" r="42"/><circle cx="90" cy="452" r="52"/><circle cx="170" cy="462" r="50"/>
+      <circle cx="250" cy="458" r="46"/><circle cx="330" cy="472" r="40"/><circle cx="395" cy="482" r="32"/>
+      <circle cx="545" cy="486" r="34"/><circle cx="620" cy="478" r="38"/><circle cx="900" cy="482" r="36"/><circle cx="975" cy="490" r="30"/>
+      <circle cx="10" cy="560" r="60"/><circle cx="80" cy="600" r="66"/><circle cx="30" cy="660" r="62"/>
+      <circle cx="140" cy="680" r="56"/><circle cx="110" cy="540" r="48"/>
+    </g>
+    <g fill="#2f6b4f">
+      <circle cx="55" cy="486" r="38"/><circle cx="140" cy="478" r="44"/><circle cx="225" cy="482" r="40"/>
+      <circle cx="310" cy="490" r="34"/><circle cx="380" cy="496" r="26"/>
+      <circle cx="585" cy="498" r="28"/><circle cx="935" cy="500" r="24"/>
+      <circle cx="60" cy="580" r="44"/><circle cx="130" cy="630" r="48"/><circle cx="40" cy="700" r="50"/><circle cx="170" cy="600" r="40"/>
+    </g>
+    <g fill="#7fae86" opacity=".8">
+      <circle cx="90" cy="446" r="20"/><circle cx="180" cy="452" r="18"/><circle cx="265" cy="450" r="16"/><circle cx="345" cy="468" r="14"/>
+      <circle cx="70" cy="545" r="20"/><circle cx="140" cy="585" r="18"/><circle cx="60" cy="650" r="16"/>
+      <circle cx="610" cy="470" r="14"/><circle cx="910" cy="472" r="13"/>
+    </g>
+    <g fill="#2f6b4f">
+      <circle cx="1080" cy="492" r="18"/><circle cx="1125" cy="486" r="14"/><circle cx="1160" cy="492" r="10"/>
+    </g>
+    <g transform="translate(1090,524)" stroke="#4e7a52" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M0,0 v-34 M0,-18 q-10,-2 -10,-14 M0,-24 q9,-2 9,-12"/>
+    </g>
+    <g transform="translate(1132,514) scale(.8)" stroke="#4e7a52" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M0,0 v-34 M0,-18 q10,-2 10,-14 M0,-24 q-9,-2 -9,-12"/>
+    </g>
+  </g>
+  <g class="theme-vegetation">
+    <use href="#palm" transform="translate(140,516) scale(1.2)"/>
+    <use href="#palm" transform="translate(430,518) scale(1.05)"/>
+    <use href="#palm" transform="translate(608,514) scale(1.15)"/>
+    <use href="#palm" transform="translate(890,518) scale(-1,1)"/>
+    <use href="#palm" transform="translate(958,510) scale(-.9,.9)"/>
+    <use href="#palm" transform="translate(1060,504) scale(.8)"/>
+  </g>
+  <g class="hotspot" data-hotspot="Conuco gardens" tabindex="0" role="button">
+    <g class="theme-vegetation">
+      <path d="M252,636 C310,614 420,610 496,622 C556,630 580,652 572,684 C562,718 490,732 404,730 C318,728 252,708 240,678 C232,658 236,646 252,636 Z" fill="#c9b98f"/>
+      <path d="M252,636 C310,614 420,610 496,622 C556,630 580,652 572,684 C562,718 490,732 404,730 C318,728 252,708 240,678 C232,658 236,646 252,636 Z" fill="none" stroke="#b3a075" stroke-width="2" opacity=".6"/>
+      <use href="#mound" transform="translate(292,646)"/><use href="#mound" transform="translate(336,646)"/>
+      <use href="#mound" transform="translate(380,646)"/><use href="#mound" transform="translate(424,646)"/>
+      <use href="#mound" transform="translate(468,646)"/><use href="#mound" transform="translate(512,646)"/>
+      <use href="#mound" transform="translate(272,672)"/><use href="#mound" transform="translate(316,672)"/>
+      <use href="#mound" transform="translate(360,672)"/><use href="#mound" transform="translate(404,672)"/>
+      <use href="#mound" transform="translate(448,672)"/><use href="#mound" transform="translate(492,672)"/>
+      <use href="#mound" transform="translate(536,672)"/>
+      <use href="#mound" transform="translate(296,698)"/><use href="#mound" transform="translate(340,698)"/>
+      <use href="#mound" transform="translate(384,698)"/><use href="#mound" transform="translate(428,698)"/>
+      <use href="#mound" transform="translate(472,698)"/><use href="#mound" transform="translate(516,698)"/>
+    </g>
+    <g class="theme-people">
+      <use href="#fig" transform="translate(556,660)"/>
+      <path d="M560,652 L570,668" stroke="#7a5a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+    <use href="#hs" transform="translate(400,594)"/>
+  </g>
+  <g class="hotspot" data-hotspot="Bohío village & batey" tabindex="0" role="button">
+    <g class="theme-people">
+      <ellipse cx="745" cy="592" rx="95" ry="36" fill="#c9b98f"/>
+      <ellipse cx="745" cy="592" rx="60" ry="22" fill="#d3c49a" opacity=".8"/>
+      <ellipse cx="745" cy="592" rx="95" ry="36" fill="none" stroke="#b3a075" stroke-width="2" opacity=".7"/>
+    </g>
+    <g class="theme-built">
+      <rect x="700" y="514" width="90" height="30" fill="#c9b98f"/>
+      <rect x="700" y="514" width="90" height="5" fill="#6e5f3f" opacity=".6"/>
+      <path d="M692,514 L798,514 L772,486 L718,486 Z" fill="#8f7c53"/>
+      <path d="M718,486 L772,486 L768,482 L722,482 Z" fill="#6e5f3f"/>
+      <path d="M745,514 L745,486 M725,514 L730,486 M765,514 L760,486" stroke="#6e5f3f" stroke-width="1.5" opacity=".5" fill="none"/>
+      <path d="M738,544 L738,530 A7,7 0 0 1 752,530 L752,544 Z" fill="#4a3b28"/>
+      <use href="#bohio" transform="translate(652,548) scale(1.05)"/>
+      <use href="#bohio" transform="translate(838,550)"/>
+      <use href="#bohio" transform="translate(668,624) scale(1.18)"/>
+      <use href="#bohio" transform="translate(828,626) scale(1.12)"/>
+      <use href="#bohio" transform="translate(748,652) scale(.92)"/>
+    </g>
+    <g class="theme-people">
+      <use href="#fig" transform="translate(716,586)"/>
+      <use href="#fig" transform="translate(774,584) scale(-1,1)"/>
+      <circle cx="745" cy="588" r="2.8" fill="#4a3b28"/>
+      <use href="#fig" transform="translate(882,642)"/>
+      <path class="ambient amb-rise" d="M745,484 C739,468 751,458 744,442 C738,428 749,418 744,404" stroke="#e3e6da" stroke-width="6" fill="none" stroke-linecap="round" opacity=".5"/>
+      <path class="ambient amb-rise" d="M668,528 C663,514 673,504 667,490 C662,478 670,468 666,456" stroke="#e3e6da" stroke-width="5" fill="none" stroke-linecap="round" opacity=".45"/>
+    </g>
+    <use href="#hs" transform="translate(745,466)"/>
+  </g>
+  <g class="theme-vegetation" stroke="#7fae86" stroke-width="2" fill="none" opacity=".7" stroke-linecap="round">
+    <path d="M557,600 l-3,-7 M560,600 l0,-8 M563,600 l3,-7 M637,668 l-3,-7 M640,668 l0,-8 M643,668 l3,-7 M877,650 l-3,-7 M880,650 l0,-8 M883,650 l3,-7 M957,600 l-3,-7 M960,600 l0,-8 M963,600 l3,-7 M477,600 l-3,-7 M480,600 l0,-8 M483,600 l3,-7"/>
+  </g>
+</g>
+
+<g class="pl pl-fore">
+  <path d="M0,742 C180,722 340,738 520,730 C700,722 860,742 1040,734 C1220,726 1400,742 1600,730 L1600,900 L0,900 Z" fill="url(#mudG)"/>
+  <path d="M0,748 C180,728 340,744 520,736 C700,728 860,748 1040,740 C1220,732 1400,748 1600,736" stroke="#8f8260" stroke-width="6" fill="none" opacity=".35"/>
+  <g fill="#e0d6b2" opacity=".35">
+    <ellipse cx="400" cy="830" rx="90" ry="12"/>
+    <ellipse cx="900" cy="860" rx="110" ry="14"/>
+    <ellipse cx="1400" cy="790" rx="80" ry="10"/>
+  </g>
+  <g class="theme-hydrology">
+    <ellipse cx="640" cy="796" rx="128" ry="24" fill="url(#poolG)"/>
+    <ellipse cx="640" cy="796" rx="128" ry="24" fill="none" stroke="#8f8260" stroke-width="2" opacity=".55"/>
+    <path d="M560,792 h60 M640,802 h70" stroke="#bfe0da" stroke-width="2" opacity=".35" fill="none"/>
+    <ellipse cx="1180" cy="838" rx="105" ry="20" fill="url(#poolG)"/>
+    <ellipse cx="1180" cy="838" rx="105" ry="20" fill="none" stroke="#8f8260" stroke-width="2" opacity=".55"/>
+    <path d="M1120,836 h50" stroke="#bfe0da" stroke-width="2" opacity=".35" fill="none"/>
+    <ellipse cx="205" cy="782" rx="78" ry="15" fill="url(#poolG)"/>
+    <ellipse cx="205" cy="782" rx="78" ry="15" fill="none" stroke="#8f8260" stroke-width="2" opacity=".55"/>
+    <path d="M170,780 h36" stroke="#bfe0da" stroke-width="2" opacity=".35" fill="none"/>
+    <path d="M1140,742 q40,-6 80,0 M1330,748 q36,-5 72,0 M1040,736 q30,-4 60,0" stroke="#dce9e2" stroke-width="2.5" fill="none" opacity=".5"/>
+  </g>
+  <g stroke="#5d4d38" stroke-width="2" fill="none" stroke-linecap="round">
+    <path d="M500,780 v-8 M512,786 v-7 M524,778 v-9 M536,784 v-6 M760,782 v-8 M772,788 v-6 M784,780 v-8 M120,776 v-7 M132,782 v-6 M144,774 v-8 M280,778 v-7 M292,784 v-6"/>
+  </g>
+  <g class="theme-vegetation">
+    <g fill="#2f6b4f">
+      <circle cx="30" cy="726" r="26"/><circle cx="70" cy="716" r="30"/><circle cx="110" cy="724" r="24"/>
+      <circle cx="1530" cy="732" r="26"/><circle cx="1565" cy="722" r="28"/><circle cx="1595" cy="730" r="22"/>
+    </g>
+    <g fill="#1f3d2b">
+      <circle cx="50" cy="736" r="22"/><circle cx="95" cy="734" r="20"/>
+      <circle cx="1550" cy="742" r="20"/><circle cx="1580" cy="738" r="18"/>
+    </g>
+    <g stroke="#6b4f35" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M60,742 C50,760 44,772 38,786 M60,742 C62,762 60,774 62,788 M85,744 C92,762 98,774 106,788 M85,744 C84,760 82,772 80,786"/>
+      <path d="M1550,748 C1544,764 1538,776 1532,790 M1550,748 C1552,766 1550,778 1552,792 M1575,748 C1582,764 1588,776 1594,790"/>
+    </g>
+    <g stroke="#7fae86" stroke-width="1.6" fill="none" stroke-linecap="round">
+      <path d="M600,830 q2,-6 5,-7 M600,830 q-2,-6 -5,-7 M1010,806 q2,-6 5,-7 M1010,806 q-2,-6 -5,-7 M330,800 q2,-6 5,-7 M330,800 q-2,-6 -5,-7"/>
+    </g>
+    <path d="M960,856 C990,846 1020,846 1048,852 M968,862 C994,854 1018,854 1042,858" stroke="#9aa374" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <path d="M740,848 C770,836 810,838 836,826 M800,836 C808,828 812,824 820,820" stroke="#8a7655" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <g fill="#8f8260" opacity=".7">
+    <circle cx="700" cy="850" r="3"/><circle cx="730" cy="860" r="2.4"/><circle cx="900" cy="830" r="3"/>
+    <circle cx="950" cy="845" r="2.2"/><circle cx="520" cy="840" r="2.6"/><circle cx="300" cy="830" r="3"/><circle cx="350" cy="852" r="2.2"/>
+  </g>
+  <g class="theme-people" transform="translate(1345,808) rotate(-7)">
+    <use href="#hull" transform="scale(1.05)"/>
+    <path d="M38,16 L66,28" stroke="#7a5a3a" stroke-width="3" fill="none"/>
+    <ellipse cx="70" cy="30" rx="4" ry="7" fill="#7a5a3a" transform="rotate(30 70 30)"/>
+  </g>
+  <ellipse cx="428" cy="806" rx="46" ry="14" fill="#8d8a76"/>
+  <ellipse cx="428" cy="802" rx="40" ry="10" fill="#9b9883"/>
+  <g class="theme-fauna">
+    <path d="M404,792 C380,796 366,804 356,812" stroke="#8b9377" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="430" cy="792" rx="26" ry="9" fill="#8b9377"/>
+    <path d="M406,788 L410,781 L414,788 L418,780 L422,788 L426,780 L430,788 L434,781 L438,788 Z" fill="#6f7a5e"/>
+    <circle cx="456" cy="788" r="7" fill="#8b9377"/>
+    <circle cx="458" cy="783" r="1.8" fill="#6f7a5e"/>
+    <circle cx="458" cy="787" r="1.2" fill="#2c3527"/>
+    <path d="M462,792 l6,2" stroke="#6f7a5e" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M418,798 l-6,6 M440,798 l6,6" stroke="#8b9377" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <g class="theme-fauna ambient amb-bob" transform="translate(600,764)" style="color:#f2f1e8">
+    <use href="#wader"/>
+  </g>
+  <g class="theme-fauna">
+    <ellipse cx="160" cy="806" rx="15" ry="10" fill="#8a6f4a"/>
+    <circle cx="172" cy="800" r="7.5" fill="#8a6f4a"/>
+    <circle cx="168" cy="794" r="2.5" fill="#6e5638"/>
+    <circle cx="176" cy="793" r="2.5" fill="#6e5638"/>
+    <circle cx="175" cy="800" r="1.2" fill="#2c2016"/>
+    <circle cx="179" cy="803" r="1" fill="#4a3b28"/>
+    <path d="M146,808 C136,812 130,818 128,824" stroke="#6e5638" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+</g>
