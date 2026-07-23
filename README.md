@@ -88,8 +88,15 @@ QA uses Playwright. The shipped site itself has **zero** third-party runtime cod
 
 ## Deployed via
 
-GitHub Pages (`.github/workflows/deploy.yml`) — static publish of the repo root on push to `main`. No
-AWS, no backend.
+GitHub Pages, serving the repo root of `main` directly (the site is static and lives at the root —
+`index.html`, `styles.css`, `app.js`, `data/`, `scenes/`). No AWS, no backend, no build step.
+
+**To publish:** repo **Settings → Pages → Build and deployment → Source: _Deploy from a branch_ →
+Branch: `main` / `/root` → Save.** The live URL is then
+`https://carlosrymer.github.io/kimi-k3-santo-domingo-timescape/`. A GitHub Actions workflow that does
+the same thing is included at [`tools/deploy.yml.staged`](tools/deploy.yml.staged) — move it to
+`.github/workflows/deploy.yml` if you'd rather deploy via Actions (that requires a token with the
+`workflow` scope).
 
 ---
 Part of the [AI Frontier Showcase](https://github.com/carlosrymer/ai-frontier-showcase-builds) —

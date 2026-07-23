@@ -70,9 +70,11 @@ flowchart TD
 
 ## Deployment
 
-GitHub Pages via `.github/workflows/deploy.yml`. On every push to `main` the workflow assembles the
-static files (`index.html`, `styles.css`, `app.js`, `data/`, `scenes/`) into an artifact and deploys
-it with `actions/deploy-pages`. No AWS, no server, zero runtime cost. A redeploy is just a push.
+GitHub Pages, serving the repo root of `main` directly (the site is static and lives at the root).
+Enable it once under **Settings → Pages → Deploy from a branch → `main` / `/root`**; thereafter a
+redeploy is just a push to `main`. No AWS, no server, zero runtime cost. An equivalent GitHub Actions
+workflow is provided at `tools/deploy.yml.staged` (move it to `.github/workflows/` to use Actions
+instead — that path needs a token with the `workflow` scope, which this build session didn't have).
 
 ## Tech choices & rationale
 
