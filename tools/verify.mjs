@@ -12,8 +12,13 @@ const shots = join(ROOT, "tools", "kimi", "renders");
 mkdirSync(shots, { recursive: true });
 const base = process.argv[2] || "http://localhost:8099";
 
+// When verifying a remote (live) URL, route the browser through the session's egress proxy.
+// Local file/localhost checks need no proxy.
+const proxyServer = process.env.HTTPS_PROXY || process.env.https_proxy;
+const useProxy = proxyServer && !/localhost|127\.0\.0\.1/.test(base);
 const browser = await chromium.launch({
   executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
+  ...(useProxy ? { proxy: { server: proxyServer } } : {}),
 });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 const errors = [];
