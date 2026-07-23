@@ -28,11 +28,18 @@ writeFileSync(
     "window.META = " + JSON.stringify(meta) + ";\n"
 );
 
+// K3 sometimes emits bare "&" inside attribute values it copied verbatim from the data
+// (e.g. data-hotspot="Bohío village & batey"). Browsers tolerate it, but escape stray
+// ampersands to valid entities so the SVG is clean XML too.
+function escapeBareAmp(svg) {
+  return svg.replace(/&(?!(amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)/g, "&amp;");
+}
+
 const scenes = {};
 let missing = [];
 for (const era of eras) {
   const p = join(ROOT, "scenes", `${era.id}.svg`);
-  if (existsSync(p)) scenes[era.id] = readFileSync(p, "utf8").trim();
+  if (existsSync(p)) scenes[era.id] = escapeBareAmp(readFileSync(p, "utf8").trim());
   else missing.push(era.id);
 }
 writeFileSync(

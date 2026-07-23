@@ -60,7 +60,9 @@ scene a viewer would find beautiful and legible, not a rough sketch. No outer <s
     system: SYSTEM,
     user,
     maxTokens: 48000,
-    reasoningEffort: "medium",
+    // A few structure-heavy eras over-reason at "medium" and truncate; KIMI_EFFORT=low
+    // lets us regenerate those with minimal reasoning (still complete, detailed output).
+    reasoningEffort: process.env.KIMI_EFFORT || "medium",
     label: `scene ${era.index} ${era.id}`,
     rawPath,
   });
