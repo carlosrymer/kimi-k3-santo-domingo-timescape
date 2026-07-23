@@ -1,4 +1,4 @@
-# PRD — Ozama Timescape
+# PRD — Santo Domingo Timescape
 
 ## Problem statement
 

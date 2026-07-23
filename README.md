@@ -1,8 +1,8 @@
-# Ozama Timescape
+# Santo Domingo Timescape
 
 **Try it live: [https://carlosrymer.github.io/kimi-k3-santo-domingo-timescape/](https://carlosrymer.github.io/kimi-k3-santo-domingo-timescape/)**
 
-A **landscape time machine** for the mouth of the Ozama River in Santo Domingo. From one fixed
+A **landscape time machine** for **Santo Domingo**, seen from the mouth of the Ozama River. From one fixed
 vantage, watch the same framed scene transform across **12 major-change eras — Taíno estuary (1400) to
 modern megacity (2026)** — as you drag a snapping time-scrubber. Side panels, a per-frame confidence
 badge, sourced hotspots, a compare-wipe, and change-strip sparklines make 600 years of landscape

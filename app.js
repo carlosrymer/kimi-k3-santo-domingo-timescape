@@ -17,7 +17,7 @@
 
   if (!ERAS.length) {
     // Nothing to drive — fail quietly but visibly for developers.
-    if (window.console && console.warn) console.warn('Ozama Timescape: window.ERAS is missing or empty.');
+    if (window.console && console.warn) console.warn('Santo Domingo Timescape: window.ERAS is missing or empty.');
     return;
   }
 

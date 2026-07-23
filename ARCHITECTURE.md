@@ -1,8 +1,8 @@
-# Architecture — Ozama Timescape
+# Architecture — Santo Domingo Timescape
 
 ## Overview
 
-Ozama Timescape is a **fully static single-page site**: three files (`index.html`, `styles.css`,
+Santo Domingo Timescape is a **fully static single-page site**: three files (`index.html`, `styles.css`,
 `app.js`) plus two generated data bundles and twelve SVG scenes. There is no backend, no build step
 required to run it, and no third-party runtime dependencies — it is vanilla HTML/CSS/JS that a browser
 loads directly. Kimi K3 (Moonshot AI) authored the visual scenes and the entire interaction shell; a

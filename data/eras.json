@@ -1,5 +1,5 @@
 {
-  "$schema": "./eras.schema notes: source-of-truth for the Ozama Timescape. Curated by hand from RESEARCH.md; Kimi K3 renders the UI from this. Every on-screen claim carries a source + confidence. Metrics are normalized 0-100 illustrative estimates (NOT precise data) used only for the relative-change sparklines — see `metricsNote`.",
+  "$schema": "./eras.schema notes: source-of-truth for the Santo Domingo Timescape. Curated by hand from RESEARCH.md; Kimi K3 renders the UI from this. Every on-screen claim carries a source + confidence. Metrics are normalized 0-100 illustrative estimates (NOT precise data) used only for the relative-change sparklines — see `metricsNote`.",
   "place": "Mouth of the Ozama River, Santo Domingo, Dominican Republic",
   "vantage": "Fixed viewpoint looking across the Ozama mouth toward the SE tip (Fortaleza Ozama) on the west bank, with the east bank beyond.",
   "metricsNote": "treeCover / builtArea / population are normalized 0-100 illustrative estimates for relative-change sparklines only. They encode documented direction and rough magnitude, not survey figures. population is normalized to the ~3.3M metro of 2020 = 100.",
