@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ozama Timescape — 600 Years at the Mouth of the Ozama</title>
+<meta name="description" content="A fixed-vantage landscape time machine: watch the mouth of the Ozama River, Santo Domingo, transform across twelve eras, 1400–2026.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232e6b7c'/%3E%3Cpath d='M2 21c5 0 5-3 10-3s5 3 10 3 5-3 8-3' fill='none' stroke='%23f2e9d6' stroke-width='2'/%3E%3Ccircle cx='16' cy='11' r='4' fill='%23a5742a'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!--
+  ════════════════════════════════════════════════════════════════════════════
+  OZAMA TIMESCAPE — STATIC SHELL · HOOKS EXPOSED FOR app.js
+  ════════════════════════════════════════════════════════════════════════════
+  DATA (loaded before app.js):  window.ERAS, window.SCENES, window.META
+
+  MODE
+    #mode-toggle            group container
+    #mode-guided            button[data-mode="guided"]   (aria-pressed)
+    #mode-explore           button[data-mode="explore"]  (aria-pressed)
+
+  STAGE / SCENES  (cross-fade by toggling .is-front between the two <svg>s;
+  inject window.SCENES[id] as innerHTML; .pl-* groups get parallax transforms)
+    #stage                  <figure> stage container
+    #scene-a  #scene-b      the two cross-fade <svg> layers (class .scene-layer)
+    #scene-title            <title> inside scene-a for a11y (update per era)
+    #year-readout           big year in HUD
+    #era-readout            era label in HUD
+    #era-new                "NEW" flag (hidden attr) for era.isNew
+    #narration              guided-tour caption (aria-live, .is-visible to fade in)
+    .pl-sky/.pl-far/.pl-water/.pl-city/.pl-fore   parallax groups inside scenes
+    .ambient .amb-drift/.amb-bob/.amb-rise/.amb-flow/.amb-blink  ambient motion
+    .hotspot[data-hotspot="NAME"]   clickable scene elements (match era.hotspots[].name)
+    .theme-vegetation/.theme-fauna/.theme-hydrology/.theme-built/.theme-people
+                            themed elements faded by layer toggles (.theme-off on <svg> root
+                            or per-layer class on #stage: .hide-vegetation etc.)
+
+  HOTSPOT CARD
+    #hotspot-card           card container (position via inline left/top)
+    #hotspot-name  #hotspot-detail  #hotspot-confidence (chip, data-level)  #hotspot-close
+
+  TIMELINE / SCRUBBER
+    #scrubber               <input type=range min=1400 max=2026> (snap on release)
+    #scrubber-ticks         container to fill with 12 stops:
+                              <button class="tick" data-era="ID" style="left:NN%">
+                                <span class="tick-label">…</span></button>
+                            (.is-active marks current)
+    #btn-prev  #btn-next    step buttons
+    #scrubber-status        sr-only status text (aria-live)
+
+  COMPARE-WIPE
+    #compare-bar            controls container
+    #compare-open           toggle button (aria-pressed) → #stage gets .is-comparing
+    #compare-a  #compare-b  <select>s to fill with all 12 eras
+    #compare-layer          second <svg> for the "B" scene (clip-path set inline)
+    #compare-divider        draggable vertical divider, role="slider" (aria-valuenow 0–100,
+                            ←/→ keys; position via inline left %)
+
+  ERA INFO
+    #era-title  #era-years  #era-summary
+    #confidence-badge       badge root (set data-level="high|moderate|low", tabindex=0)
+    #confidence-label       text: Documented / Partly documented / Reconstructed
+    #confidence-reason      tooltip text (era.confidenceReason)
+    #panels                 <details class="panel" data-panel="landscape|fauna|hydrology|built|people">
+                            → fill each .panel-body with era.panels[theme]
+    #sources-drawer         <details> collapsible
+    #sources-list           <ul> to fill with era.sources links
+
+  LAYER TOGGLES
+    #layer-toggles          fieldset; inputs: input[data-layer="vegetation|fauna|hydrology|built|people"]
+
+  SPARKLINES
+    #spark-trees  #spark-built  #spark-pop   <svg viewBox="0 0 320 72">, each containing
+                            <polyline class="spark-line"> + <g class="spark-dots">
+                            (dot for current era gets .is-current)
+    #metrics-note           footnote from window.META.metricsNote
+
+  FOOTER / META
+    #meta-vantage           vantage line (window.META.vantage)
+    #meta-place             place line (window.META.place)
+    #confidence-note        window.META.confidenceLevels explainer
+
+  DEEP LINKS: app.js owns location.hash (#era=<id>) read/write.
+  ════════════════════════════════════════════════════════════════════════════
+-->
+
+<a class="skip-link" href="#scrubber-region">Skip to timeline controls</a>
+
+<header class="site-header">
+  <div class="brand">
+    <p class="brand-kicker">A landscape time machine</p>
+    <h1 class="brand-title">Ozama <span class="brand-accent">Timescape</span></h1>
+    <p class="brand-vantage" id="meta-vantage">Fixed vantage · mouth of the Ozama River, Santo Domingo</p>
+  </div>
+
+  <div class="mode-toggle" id="mode-toggle" role="group" aria-label="Experience mode">
+    <button type="button" id="mode-guided" data-mode="guided" aria-pressed="true">
+      <span class="mode-name">Guided Tour</span>
+      <span class="mode-desc">Step through the story</span>
+    </button>
+    <button type="button" id="mode-explore" data-mode="explore" aria-pressed="false">
+      <span class="mode-name">Free Explore</span>
+      <span class="mode-desc">Scrub, toggle &amp; compare</span>
+    </button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- ─────────────────────────── STAGE ─────────────────────────── -->
+  <section class="stage-column" aria-label="Scene and timeline">
+
+    <figure id="stage" class="stage" aria-label="Illustrated scene of the Ozama river mouth">
+      <div class="stage-frame">
+        <svg id="scene-a" class="scene-layer is-front" viewBox="0 0 1600 900"
+             preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-title">
+          <title id="scene-title">Scene of the Ozama river mouth</title>
+        </svg>
+        <svg id="scene-b" class="scene-layer" viewBox="0 0 1600 900"
+             preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+        <svg id="compare-layer" class="scene-layer compare-layer" viewBox="0 0 1600 900"
+             preserveAspectRatio="xMidYMid slice" aria-hidden="true" hidden></svg>
+
+        <div id="compare-divider" class="compare-divider" role="slider" tabindex="0"
+             aria-label="Compare divider position" aria-valuemin="0" aria-valuemax="100"
+             aria-valuenow="50" hidden>
+          <span class="divider-handle" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="18" height="18" focusable="false" aria-hidden="true">
+              <path d="M8 5 L2 12 L8 19 M16 5 L22 12 L16 19" fill="none" stroke="currentColor"
+                    stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+
+        <div class="stage-hud" aria-hidden="false">
+          <p class="hud-year"><span id="year-readout">1400</span><span id="era-new" class="new-flag" hidden>new</span></p>
+          <p class="hud-era" id="era-readout">—</p>
+        </div>
+
+        <p id="narration" class="narration" aria-live="polite"></p>
+
+        <div id="hotspot-card" class="hotspot-card" role="dialog" aria-label="Hotspot detail" hidden>
+          <button type="button" id="hotspot-close" class="hotspot-close" aria-label="Close hotspot">×</button>
+          <h3 id="hotspot-name" class="hotspot-name"></h3>
+          <span id="hotspot-confidence" class="chip confidence-chip" data-level="high"></span>
+          <p id="hotspot-detail" class="hotspot-detail"></p>
+        </div>
+      </div>
+      <figcaption class="visually-hidden">
+        An illustrated scene that changes as you move through time. Use the timeline below.
+      </figcaption>
+    </figure>
+
+    <!-- ─────────────────────── SCRUBBER ─────────────────────── -->
+    <div class="scrubber-region" id="scrubber-region">
+      <button type="button" id="btn-prev" class="step-btn" aria-label="Previous era">
+        <span aria-hidden="true">←</span> Prev
+      </button>
+
+      <div class="scrubber-main">
+        <label class="visually-hidden" for="scrubber">Timeline, years 1400 to 2026</label>
+        <input type="range" id="scrubber" min="1400" max="2026" step="1" value="1400"
+               aria-describedby="scrubber-status">
+        <div id="scrubber-ticks" class="ticks" role="group" aria-label="Era stops"></div>
+        <p id="scrubber-status" class="visually-hidden" aria-live="polite"></p>
+      </div>
+
+      <button type="button" id="btn-next" class="step-btn" aria-label="Next era">
+        Next <span aria-hidden="true">→</span>
+      </button>
+    </div>
+
+    <!-- ─────────────────── COMPARE-WIPE CONTROLS ─────────────────── -->
+    <section id="compare-bar" class="compare-bar" aria-label="Compare two eras">
+      <button type="button" id="compare-open" class="compare-open" aria-pressed="false">
+        <span class="compare-icon" aria-hidden="true">◧</span> Compare eras
+      </button>
+      <div class="compare-selects">
+        <label>Era A
+          <select id="compare-a" aria-label="First era to compare"></select>
+        </label>
+        <label>Era B
+          <select id="compare-b" aria-label="Second era to compare"></select>
+        </label>
+      </div>
+      <p class="compare-hint">Drag the divider across the scene — or tab to it and use ← → keys.</p>
+    </section>
+
+    <!-- ─────────────────── CHANGE-STRIP SPARKLINES ─────────────────── -->
+    <section id="sparklines" class="sparklines" aria-label="Change across all twelve eras">
+      <h2 class="section-title">Change across 600 years</h2>
+      <div class="spark-grid">
+        <figure class="spark" data-metric="treeCover">
+          <figcaption><span class="spark-swatch" aria-hidden="true"></span>Tree cover <span class="spark-trend">↓</span></figcaption>
+          <svg id="spark-trees" viewBox="0 0 320 72" role="img" aria-label="Relative tree cover across all eras, declining">
+            <polyline class="spark-line" points=""></polyline>
+            <g class="spark-dots"></g>
+          </svg>
+        </figure>
+        <figure class="spark" data-metric="builtArea">
+          <figcaption><span class="spark-swatch" aria-hidden="true"></span>Built area <span class="spark-trend">↑</span></figcaption>
+          <svg id="spark-built" viewBox="0 0 320 72" role="img" aria-label="Relative built area across all eras, rising">
+            <polyline class="spark-line" points=""></polyline>
+            <g class="spark-dots"></g>
+          </svg>
+        </figure>
+        <figure class="spark" data-metric="population">
+          <figcaption><span class="spark-swatch" aria-hidden="true"></span>Population <span class="spark-trend">↑</span></figcaption>
+          <svg id="spark-pop" viewBox="0 0 320 72" role="img" aria-label="Relative population across all eras, rising">
+            <polyline class="spark-line" points=""></polyline>
+            <g class="spark-dots"></g>
+          </svg>
+        </figure>
+      </div>
+      <p class="spark-note" id="metrics-note">Normalized relative estimates for visual comparison — not precise figures.</p>
+    </section>
+  </section>
+
+  <!-- ─────────────────────────── SIDEBAR ─────────────────────────── -->
+  <aside class="info-column" aria-label="Era information">
+
+    <section class="era-head">
+      <div class="era-head-top">
+        <h2 id="era-title" class="era-title">—</h2>
+        <p id="era-years" class="era-years">—</p>
+      </div>
+
+      <div class="confidence" id="confidence-badge" data-level="high" tabindex="0"
+           aria-describedby="confidence-reason">
+        <span class="confidence-dot" aria-hidden="true"></span>
+        <span id="confidence-label">Documented</span>
+        <span class="confidence-tip" role="tooltip" id="confidence-reason"></span>
+      </div>
+
+      <p id="era-summary" class="era-summary"></p>
+    </section>
+
+    <fieldset id="layer-toggles" class="layer-toggles">
+      <legend>Thematic layers</legend>
+      <label class="layer-toggle" data-theme="vegetation">
+        <input type="checkbox" data-layer="vegetation" checked>
+        <span class="toggle-ui" aria-hidden="true"></span> Vegetation
+      </label>
+      <label class="layer-toggle" data-theme="fauna">
+        <input type="checkbox" data-layer="fauna" checked>
+        <span class="toggle-ui" aria-hidden="true"></span> Fauna
+      </label>
+      <label class="layer-toggle" data-theme="hydrology">
+        <input type="checkbox" data-layer="hydrology" checked>
+        <span class="toggle-ui" aria-hidden="true"></span> Hydrology
+      </label>
+      <label class="layer-toggle" data-theme="built">
+        <input type="checkbox" data-layer="built" checked>
+        <span class="toggle-ui" aria-hidden="true"></span> Built
+      </label>
+      <label class="layer-toggle" data-theme="people">
+        <input type="checkbox" data-layer="people" checked>
+        <span class="toggle-ui" aria-hidden="true"></span> People
+      </label>
+    </fieldset>
+
+    <section id="panels" class="panels" aria-label="Era themes in depth">
+      <details class="panel" data-panel="landscape" open>
+        <summary><span class="panel-glyph" aria-hidden="true">⛰</span> Landscape</summary>
+        <div class="panel-body"></div>
+      </details>
+      <details class="panel" data-panel="fauna">
+        <summary><span class="panel-glyph" aria-hidden="true">🕊</span> Fauna</summary>
+        <div class="panel-body"></div>
+      </details>
+      <details class="panel" data-panel="hydrology">
+        <summary><span class="panel-glyph" aria-hidden="true">≈</span> Hydrology</summary>
+        <div class="panel-body"></div>
+      </details>
+      <details class="panel" data-panel="built">
+        <summary><span class="panel-glyph" aria-hidden="true">⌂</span> Built</summary>
+        <div class="panel-body"></div>
+      </details>
+      <details class="panel" data-panel="people">
+        <summary><span class="panel-glyph" aria-hidden="true">✦</span> People</summary>
+        <div class="panel-body"></div>
+      </details>
+    </section>
+
+    <details id="sources-drawer" class="sources-drawer">
+      <summary id="sources-toggle">
+        <span class="sources-count" aria-hidden="true">§</span> Sources for this era
+      </summary>
+      <ul id="sources-list" class="sources-list"></ul>
+    </details>
+
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <p id="meta-place">Ozama Timescape — the mouth of the Ozama River, Santo Domingo.</p>
+  <p id="confidence-note" class="footer-note"></p>
+  <p class="footer-note">Every era carries a confidence rating: Documented, Partly documented, or Reconstructed. Hover the badge for why.</p>
+</footer>
+
+<script src="data/eras.js"></script>
+<script src="data/scenes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

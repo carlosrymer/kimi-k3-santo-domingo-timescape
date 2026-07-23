@@ -44,3 +44,28 @@ of the honest trial:
 - Prompt: fixed-stage SVG, no reference (this call establishes the visual system).
 - K3 output: 26229 chars SVG, finish=stop, completion 34979 tok (reasoning 24326).
 - Saved: scenes/taino-riverlands.svg
+
+## Shell — index.html + styles.css
+- Prompt: full feature spec + data shape; K3 authors HTML structure and the complete CSS design.
+- K3 output: 14862 chars HTML, 26806 chars CSS, finish=stop, completion 15670 tok (reasoning 3388).
+- Saved: index.html, styles.css
+
+## Scene 4 — Fortress City & Stagnation
+- Prompt: fixed-stage SVG + Era 1 style-lock reference.
+- K3 output: 37170 chars SVG, finish=stop, completion 22589 tok (reasoning 7344).
+- Saved: scenes/fortress-stagnation.svg
+
+## App — app.js (interaction engine)
+- Prompt: full feature spec + data shape + K3's own index.html/styles.css as the contract.
+- K3 output: 30178 chars JS, finish=stop, completion 12343 tok (reasoning 4289).
+- Saved: app.js
+
+## Scene 2 — Contact & Founding
+- Prompt: fixed-stage SVG + Era 1 style-lock reference.
+- K3 output: 35625 chars SVG, finish=stop, completion 29692 tok (reasoning 15173).
+- Saved: scenes/contact-founding.svg
+
+## Scene 5 — French Rule & Haitian Unification
+- Prompt: fixed-stage SVG + Era 1 style-lock reference.
+- K3 output: 35243 chars SVG, finish=stop, completion 32859 tok (reasoning 18202).
+- Saved: scenes/french-haitian-unification.svg
