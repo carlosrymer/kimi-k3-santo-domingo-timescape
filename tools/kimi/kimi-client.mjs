@@ -3,12 +3,12 @@
 //
 // Notes learned while wiring this up:
 //  - kimi-k3 is a reasoning model: responses carry `reasoning_content` separately
-//    from `content`. We only keep `content`.
+//    from `content`. Only `content` is kept.
 //  - Temperature is locked to 1 (any other value -> HTTP 400).
 //  - CRITICAL: a big non-streaming generation reasons for minutes before emitting
 //    the answer, and Node's undici headers/body timeout (~300s) kills the request
 //    with a bare "fetch failed". Fix: stream=true so reasoning + content deltas flow
-//    continuously and no timeout trips. We also disable undici timeouts when the
+//    continuously and no timeout trips. Undici timeouts are also disabled when the
 //    module is importable, as a belt-and-suspenders.
 //  - Endpoint: https://api.moonshot.ai/v1/chat/completions, model "kimi-k3".
 
@@ -24,7 +24,7 @@ if (!KEY) {
   process.exit(1);
 }
 
-// Belt-and-suspenders: disable undici read timeouts if we can reach the module.
+// Belt-and-suspenders: disable undici read timeouts if the module is reachable.
 try {
   const undici = await import("undici");
   undici.setGlobalDispatcher(

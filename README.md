@@ -23,7 +23,7 @@ the entire `index.html` + `styles.css` shell, and the full 844-line `app.js` int
 human wrote the API client, the fixed-stage art-direction contract, the curated history, the data
 bundling and the Playwright verification — **but wrote no UI code.**
 
-What genuinely surprised us, building with it:
+What genuinely surprised me, building with it:
 
 - **The illustration quality is real.** Given only an era's text brief + a palette + a shared stage
   contract, K3 composed detailed, characterful flat-vector scenes — a Taíno estuary with canoes,
@@ -33,7 +33,7 @@ What genuinely surprised us, building with it:
 - **The interaction code was essentially correct on the first pass.** Cross-fade + parallax (guarded
   for `prefers-reduced-motion` in JS, not just CSS), a scrubber that snaps to the nearest era anchor,
   a compare-wipe with a keyboard-accessible draggable divider, sparklines with accessible tooltips,
-  deep-link hashes — our golden-path harness passed **10/10 checks with 0 console errors** with no
+  deep-link hashes — my golden-path harness passed **10/10 checks with 0 console errors** with no
   code fixes. The only human edits to K3's output were a favicon (to silence a 404) and cosmetic.
 - **The gotcha is `reasoning_effort`, and the PLAN's assumption was wrong.** K3 is a reasoning model.
   At the default/high effort it burned **30k–90k reasoning tokens** on a single scene and either
@@ -99,5 +99,5 @@ the same thing is included at [`tools/deploy.yml.staged`](tools/deploy.yml.stage
 `workflow` scope).
 
 ---
-Part of the [AI Frontier Showcase](https://github.com/carlosrymer/ai-frontier-showcase-builds) —
-a running log of real-world builds trialing frontier AI models and frameworks as they ship.
+Part of an ongoing series of small, real-world builds trialing frontier AI models, frameworks,
+and tools as they ship.

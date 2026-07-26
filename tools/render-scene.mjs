@@ -1,5 +1,5 @@
 // Dev tool: render a scene SVG fragment (or several) to PNG for visual QA.
-// Injects the fragment exactly as the app does (innerHTML into an <svg>), so what we
+// Injects the fragment exactly as the app does (innerHTML into an <svg>), so the
 // screenshot is what the browser will show.
 //   node tools/render-scene.mjs taino-riverlands [more-ids...]   (no args = all in scenes/)
 

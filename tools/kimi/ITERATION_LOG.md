@@ -30,7 +30,7 @@ of the honest trial:
 
    **Important nuance:** reasoning length scales with *prompt* complexity, not just the effort label.
    The ~40-token medium figure above was on a toy prompt; on the real scene prompt (full art-direction
-   spec + era brief) **medium reasons ~15k tokens**. So the truncation we first saw was really our own
+   spec + era brief) **medium reasons ~15k tokens**. So the truncation I first saw was really my own
    `max_tokens` cap being too low, not the effort level. Fix: generate at **`reasoning_effort:
    "medium"`** with a **generous `max_tokens` (48k for scenes)** so ~15k reasoning + the full detailed
    SVG both fit (`finish=stop`). Honest finding: kimi-k3's *high/default* reasoning is impractical for

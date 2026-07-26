@@ -585,7 +585,7 @@
       },
       "hotspots": [
         {"name": "The teleférico (2018)", "detail": "The Caribbean's first urban gondola flies a ~5 km line across the Ozama (twice), its red cabins gliding directly over the tin roofs of Gualey and Los Guandules and the brown river — linking long-isolated riverbank barrios to Metro Line 2. The single most drawable 'modern' motif for this view.", "confidence": "high"},
-        {"name": "Interceptor 004 & the plastic", "detail": "The Ozama transfers an estimated 40–90% of its floating plastic straight to the Caribbean. The Ocean Cleanup's Interceptor 004 — the first in the Caribbean — was installed in 2020: a catamaran-style barge with a floating boom angled across the mouth. (The widely-quoted '~90,000 tons/yr' is press-cited, not confirmed in a primary source — we cite the percentage.)", "confidence": "high"},
+        {"name": "Interceptor 004 & the plastic", "detail": "The Ozama transfers an estimated 40–90% of its floating plastic straight to the Caribbean. The Ocean Cleanup's Interceptor 004 — the first in the Caribbean — was installed in 2020: a catamaran-style barge with a floating boom angled across the mouth. (The widely-quoted '~90,000 tons/yr' is press-cited, not confirmed in a primary source — I cite the percentage.)", "confidence": "high"},
         {"name": "Mangroves & La Nueva Barquita", "detail": "Parque Nacional Humedales del Ozama (~47 km²) preserves lagoons and mangroves north of the city — the last patch of the Era-1 estuary. La Nueva Barquita (2016) rehoused ~5,500–6,000 flood-prone riverbank residents in 112 planned blocks on higher ground; Nuevo Domingo Savio continues the riverbank renewal.", "confidence": "high"}
       ],
       "panels": {
